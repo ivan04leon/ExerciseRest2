@@ -14,18 +14,24 @@
   <!-- Se define un servlet de nombre jersey-servlet con los parámetros de mi
   aplicación -->
   <servlet>
-    <servlet-name>jersey-servlet</servlet-name>
+  <!-- nombre no importa, le puedes poner el que quieras -->
+    <servlet-name>elServlet</servlet-name>
+<!-- depende de la version de jersey que estas usando, segun API rest-->
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>
+    <!-- El paquete que procesa todo esto desde jersey-->
       <param-name>jersey.config.server.provider.packages</param-name>
-      <param-value>gen.ExerciseRest2</param-value>
+            <!-- paquete, todas las peticiones de esta clase-->
+      <param-value>gen.ExerciseRest2.services</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
   
   <!-- Asignar al servlet un url mapping -->
   <servlet-mapping>
-        <servlet-name>jersey-servlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+    <!-- el mismo nombre de antes -->
+        <servlet-name>elServlet</servlet-name>
+            <!-- solo peticiones por este metodo (/*) para todos -->
+        <url-pattern>/magia/*</url-pattern>
     </servlet-mapping>
 </web-app>
